@@ -1,7 +1,7 @@
 ﻿# Enjambre — Paquete para otro equipo
 
 > Sistema de agentes especializados para opencode.
-> Ahorro medido vs basal: **-15.5% tokens / -13.0% coste / -4.7% tiempo** (router v1.1, 6 proyectos P1-P6) — pico **-48% tokens en P6** y **-41.2% tiempo / -25.2% tokens** en benchmark ideal.
+> **Promedio vs basal (router v1.1, 6 proy): -15.5% tokens / -4.7% tiempo / -13% coste** — **Picos: -48.2% tokens (P6 1461 lin) y -41.2% tiempo / -25.2% tokens (ideal 6 proy)**.
 
 ## Que es esto
 
@@ -45,16 +45,17 @@ El orquestador clasifica y despacha automaticamente (`DIRECTO` vs `ENJAMBRE` via
 
 ## Resultados medidos
 
-> Fuente: `lab/TABLA-EVOLUCION.md` (router v1.1, 6 proyectos P1-P6, 1 rep/proy, `--pure`) y `lab/BENCHMARK-FINAL.md` (ideal)
+> Fuente: `lab/TABLA-EVOLUCION.md` (router v1.1, 6 proy P1-P6, 1 rep/proy, `--pure`) y `lab/BENCHMARK-FINAL.md` (ideal). **Promedio = media 6 proy con router; Picos = mejor caso.**
 
-| Metrica | Sin Enjambre (C) | Con Enjambre | Ahorro |
-|---------|-----------------|--------------|--------|
-| **Tiempo total (6 proy, v1.1)** | 454.5s | 433.0s | **-4.7%** (-21.5s) |
-| **Tokens totales (6 proy, v1.1)** | 1,096,190 | 926,268 | **-15.5%** |
-| **Coste total (6 proy, v1.1)** | $0.133 | $0.116 | **-13.0%** |
-| Tiempo total (ideal 6 proy) | 464.8s | 273.1s | -41.2% |
-| Tokens totales (ideal) | 493,340 | 368,994 | -25.2% |
-| **P6 1461 lin (pico)** | 335,054 tok / 94.7s | 173,501 tok / 103.5s | **-48.2% tok** |
+| Metrica | Sin Enjambre (C) | Con Enjambre | Ahorro | Tipo |
+|---------|-----------------|--------------|--------|------|
+| **Tokens totales — promedio** | 1,096,190 | 926,268 | **-15.5%** | promedio 6 proy |
+| **Tiempo total — promedio** | 454.5s | 433.0s | **-4.7%** (-21.5s) | promedio 6 proy |
+| Coste total — promedio | $0.133 | $0.116 | **-13.0%** | promedio 6 proy |
+| **Tokens — pico P6 1461 lin** | 335,054 | 173,501 | **-48.2%** | pico 1 proy |
+| **Tiempo — pico ideal 6 proy** | 464.8s | 273.1s | **-41.2%** | pico ideal |
+| Tokens — pico ideal 6 proy | 493,340 | 368,994 | **-25.2%** | pico ideal |
+| Tiempo — pico P2/P4 | 80.9s / 158.3s | 59.0s / 68.2s | -27% / -19% | picos por proy |
 
 ## Limites conocidos
 
