@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enjambre run ledger (observable, no es lock)",
+  "type": "object",
+  "required": ["run", "workspaceRoot", "claims"],
+  "properties": {
+    "run": {"type": "string", "description": "Slug kebab-case de la corrida."},
+    "workspaceRoot": {"type": "string", "description": "Ruta absoluta del worktree de la corrida."},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent", "subtask", "files", "status"],
+        "properties": {
+          "agent": {"type": "string"},
+          "subtask": {"type": "string"},
+          "files": {"type": "array", "items": {"type": "string"}, "description": "Globs/paths relativos al workspaceRoot."},
+          "status": {"type": "string", "enum": ["active", "done"]}
+        }
+      }
+    },
+    "updated": {"type": "string", "format": "date-time"}
+  }
+}

@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode-go/muse-spark-1.2-contributor",
+  "small_model": "opencode-go/muse-spark-1.2-contributor",
+  "autoupdate": false,
+  "permission": {
+    "bash": "allow",
+    "edit": "allow",
+    "write": "allow"
+  },
+  "instructions": ["./Agent.md"]
+}
+

@@ -1,0 +1,62 @@
+﻿{
+    "run":  "NI11-MICRO",
+    "claims":  [
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-auth.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-users.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-auth"
+                   },
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-payments.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-orders.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-payments"
+                   },
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-config.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-gateway.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-infra"
+                   },
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-events.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-notifications.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-events"
+                   },
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-shipping.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-inventory.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-logistics"
+                   },
+                   {
+                       "status":  "done",
+                       "agent":  "enjambre-exp-worker",
+                       "files":  [
+                                     "lab/conversaciones/NI11-MICRO/informe-analytics.md",
+                                     "lab/conversaciones/NI11-MICRO/informe-utils.md"
+                                 ],
+                       "subtask":  "T-micro-dominio-analytics"
+                   }
+               ],
+    "$schema":  "./block.schema.json",
+    "workspaceRoot":  "C:\\Proyectos\\Skills\\Enjambre",
+    "updated":  "2026-09-20T21:54:30.7994411Z"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "./router-config.schema.json",
+  "version": "1.1-calibracion-principiada-2026-09-20",
+  "fast_reject": { "archivos_lt": 3, "lineas_lt": 100, "riesgo": "bajo" },
+  "pesos": { "volumen": 0.30, "coupling": 0.20, "paralelizable": 0.30, "riesgo": 0.20 },
+  "umbral_base": 6.0,
+  "overhead": { "base": 62000, "por_archivo": 15000, "cap": 143000, "divisor": 50000 },
+  "volumen_formula": "lineas/40 cap10, tokens ignorado (evita subestimacion tokensEst=lineas*12)",
+  "coupling_inverso_volumen": false,
+  "valle": { "min": 4, "max_umbral": 6.0, "politica": "DIRECTO por defecto hasta 30 muestras, ENJAMBRE_SELECTIVO N=3 solo si par>=8 && coupling<=4" },
+  "modos": { "1": "DIRECTO 1 agente", "3": "ENJAMBRE_SELECTIVO 3 agentes (explorer/implementer/critic)", "5": "ENJAMBRE 5 agentes sharded" },
+  "superpower": { "opt_in": "arch>8 || volumen>=8", "coste": 80000, "decorator": true },
+  "riesgo_map": { "bajo": 2, "medio": 5, "alto": 9 },
+  "cambios_v1_1": "No es ajuste fino a P4/P5: corrige bug escala volumen (tokensEst subestimaba 3x) y rebalancea pesos por principio paralelizable> coupling (veredicto comité: paralelizable domina). Umbral 6.5->6.0 por Principio de Parsimonia, no por fit. Validar con holdout P5.",
+  "notas": "Holdout: calibrado con P1-P4, validado en P5. Recalibrar con 30 muestras OOD."
+}
