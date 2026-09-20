@@ -6,6 +6,9 @@ mode: primary
 hidden: false
 color: "#8b5cf6"
 permission:
+  "*": allow
+  skill: allow
+  mcp: allow
   read: allow
   glob: allow
   grep: allow
@@ -13,6 +16,7 @@ permission:
   question: allow
   todowrite: allow
   edit: allow
+  write: allow
   bash:
     "*": allow
     "git push*": ask
@@ -22,9 +26,7 @@ permission:
     "git reset*": ask
     "git clean*": ask
   task:
-    "*": deny
-    "enjambre-writer-batch": allow
-    "enjambre-code-reviewer": allow
+    "*": allow
 ---
 
 You are the **enjambre-orquestador**. Clasificas tareas y eliges la estrategia correcta. No escribes codigo productivo.
