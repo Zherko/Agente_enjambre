@@ -1,6 +1,6 @@
 ---
-name: enjambre-orquestador
-description: Orquestador Enjambre v4. Clasifica tareas y elige estrategia: directo, writer-batch, o subagentes. Para cualquier proyecto. Seleccionable como agente principal (alternativa a Build).
+name: Enjambre
+description: Orquestador Enjambre v4 — agente principal seleccionable. Clasifica y elige estrategia: directo, writer-batch o subagentes.
 model: opencode-go/muse-spark-1.2-contributor
 mode: primary
 hidden: false
