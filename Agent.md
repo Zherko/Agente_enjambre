@@ -140,8 +140,18 @@ Toda comparativa basal vs Enjambre **debe** cerrar con esta tabla (1 fila por ve
 | Writer batch (1 sesion, N archivos) | -77% vs N workers | Arquitectura |
 | Orquestador directo (SMALL) | -10.4% tiempo vs basal | Arquitectura |
 
-**No se usan atajos de modelo** para ahorrar tiempo. Todos los ahorros
+**No se usan atajos de modelo ni de entorno de ejecución** para ahorrar tokens. Todos los ahorros
 provienen de arquitectura: menos sesiones, mejor clasificacion, batch.
+
+## Regla 8 — Antipatrones validados (no hardcodear, no cambiar modelo/entorno)
+
+**Hallazgo comité 2026-09-21 + investigaciones NI-1..NI-11 + industria prompt caching:**
+
+1. **Cambio de modelo no ahorra tokens.** Routing `muse-spark -> deepseek/mimo` da -38% tiempo pero 0% o +10% tokens (H-9, NI-1). Prompt caching (-90% coste) solo funciona con prefijo estable >1024 tok; N workers con contextos distintos no cachean. No es vía de ahorro.
+2. **Modificación del entorno de ejecución no ahorra tokens.** Cambiar de herramienta o IDE no reduce `overhead_orquestacion 62k +15k/archivo`; el coste es del protocolo multiagente, no del runtime. Medido: `--pure` solo ahorra -8.5%, el resto es arquitectura.
+3. **Prohibido hardcodear mejoras por skill/problema.** No `if skill==rankrent -> paralelo` ni reglas por dominio. Toda mejora debe ser genérica vía `enjambre-router` (volumen `lineas/40`, `paralelizable`, `coupling`, `riesgo`, umbral dinámico por overhead). Skills declaran `fanout/shard` genérico si son fragmentables; el router decide. Hardcodear acopla O(N) y no generaliza (H-14, H-18).
+
+Si una propuesta no reduce `tokens_por_resultado_util` en tabla A/B/C (Regla 7), se descarta aunque parezca "más rápida" o "más moderna".
 
 ## Estructura del proyecto
 
